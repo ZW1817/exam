@@ -1,6 +1,10 @@
 package com.kaifamiao.mapper;
 
-import com.kaifamiao.model.Paperstate;
+import com.kaifamiao.model.PaperstateModel;
+import com.kaifamiao.provider.PaperstateProvider;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
 * @author HP1
@@ -10,16 +14,19 @@ import com.kaifamiao.model.Paperstate;
 */
 public interface PaperstateMapper {
 
-    int deleteByPrimaryKey(Long id);
+    @InsertProvider(type = PaperstateProvider.class, method = "insert")
+    int insert(PaperstateModel record);
 
-    int insert(Paperstate record);
+    @Delete("delete from paperstate where id= #{id}}")
+    int delete(int id);
 
-    int insertSelective(Paperstate record);
+    @UpdateProvider(type = PaperstateProvider.class, method = "update")
+    int update(PaperstateModel record);
 
-    Paperstate selectByPrimaryKey(Long id);
+    @Select("select * from paperstate where id = #{id}}")
+    PaperstateModel selectOne(int id);
 
-    int updateByPrimaryKeySelective(Paperstate record);
-
-    int updateByPrimaryKey(Paperstate record);
+    @SelectProvider(type = PaperstateProvider.class, method = "selectAll")
+   List<PaperstateModel> selectAll(PaperstateModel record);
 
 }

@@ -58,8 +58,9 @@ public class StudentProvider {
 
     public String selectAll(StudentModel record){
         return new SQL(){{
-            SELECT("*");
+            SELECT("student.*,banji.name classname");
             FROM(tableName);
+            LEFT_OUTER_JOIN("banji on student.classid = banji.id");
             if(record != null) {
                 if(record.getId() != null) WHERE("id = #{id}");
                 if(record.getStno() != null) WHERE("stno = #{stno}");

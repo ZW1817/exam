@@ -5,6 +5,8 @@ import com.kaifamiao.model.BanjiModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("banjiService")
 public class BanjiServiceImpl implements com.kaifamiao.service.BanjiService {
 
@@ -18,23 +20,23 @@ public class BanjiServiceImpl implements com.kaifamiao.service.BanjiService {
 
     @Override
     public int delete(int id) {
-        return banjiMapper.deleteByPrimaryKey(id);
+        return banjiMapper.delete(id);
     }
 
     @Override
     public int update(BanjiModel record) {
-        return banjiMapper.updateByPrimaryKey(record);
+        return banjiMapper.update(record);
     }
 
     @Override
     public BanjiModel selectByid(int id) {
-        return banjiMapper.selectByPrimaryKey(id);
+        return banjiMapper.selectOne(id);
     }
-//
-//    @Override
-//    public List<Banji> selectAll(Banji record) {
-//        return banjiMapper.
-//    }
+
+    @Override
+    public List<BanjiModel> selectAll(BanjiModel record) {
+        return banjiMapper.selectAll(record);
+    }
 
 
 }

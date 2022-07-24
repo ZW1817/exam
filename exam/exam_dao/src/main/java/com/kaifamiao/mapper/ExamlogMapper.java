@@ -1,6 +1,13 @@
 package com.kaifamiao.mapper;
 
-import com.kaifamiao.model.Examlog;
+import com.kaifamiao.model.ExamlogModel;
+import com.kaifamiao.provider.ExamlogProvider;
+import org.apache.ibatis.annotations.DeleteProvider;
+import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.UpdateProvider;
+
+import java.util.List;
 
 /**
 * @author HP1
@@ -10,16 +17,16 @@ import com.kaifamiao.model.Examlog;
 */
 public interface ExamlogMapper {
 
-    int deleteByPrimaryKey(Long id);
+    @InsertProvider(type = ExamlogProvider.class,method = "insert")
+    int insert(ExamlogModel record);
 
-    int insert(Examlog record);
+    @DeleteProvider(type = ExamlogProvider.class,method = "delete")
+    int delete(ExamlogModel record);
 
-    int insertSelective(Examlog record);
+    @UpdateProvider(type = ExamlogProvider.class,method = "update")
+    int update(ExamlogModel record);
 
-    Examlog selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Examlog record);
-
-    int updateByPrimaryKey(Examlog record);
+    @SelectProvider(type = ExamlogProvider.class,method = "selectAll")
+    List<ExamlogModel> selectAll(ExamlogModel record);
 
 }

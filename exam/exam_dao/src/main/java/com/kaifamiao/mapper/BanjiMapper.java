@@ -2,10 +2,9 @@ package com.kaifamiao.mapper;
 
 import com.kaifamiao.model.BanjiModel;
 import com.kaifamiao.provider.BanjiProvider;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
 * @author HP1
@@ -18,14 +17,16 @@ public interface BanjiMapper {
     @InsertProvider(type = BanjiProvider.class,method = "insert")
     int insert(BanjiModel record);
 
-    @DeleteProvider(type = BanjiProvider.class,method = "deleteByPrimaryKey")
-    int deleteByPrimaryKey(int id);
+    @DeleteProvider(type = BanjiProvider.class,method = "delete")
+    int delete(int id);
 
-    @SelectProvider(type = BanjiProvider.class,method = "selectByPrimaryKey")
-    BanjiModel selectByPrimaryKey(int id);
+    @UpdateProvider(type = BanjiProvider.class,method = "update")
+    int update(BanjiModel record);
 
-    @UpdateProvider(type = BanjiProvider.class,method = "updateByPrimaryKey")
-    int updateByPrimaryKey(BanjiModel record);
+    @SelectProvider(type = BanjiProvider.class,method = "selectOne")
+    BanjiModel selectOne(int id);
 
+    @SelectProvider(type = BanjiProvider.class, method = "selectAll")
+    List<BanjiModel> selectAll(BanjiModel record);
 
 }

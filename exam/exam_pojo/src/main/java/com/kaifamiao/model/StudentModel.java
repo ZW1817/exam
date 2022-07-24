@@ -54,5 +54,7 @@ public class StudentModel implements Serializable {
 
     private Integer classid;
 
+    private String classname;
+
     private static final long serialVersionUID = 1L;
 }

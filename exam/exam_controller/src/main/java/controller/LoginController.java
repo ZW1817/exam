@@ -1,7 +1,7 @@
 package controller;
 
-import com.kaifamiao.Utils.StnoUtil;
-import com.kaifamiao.Utils.TnoUtil;
+import utils.StnoUtil;
+import utils.TnoUtil;
 import com.kaifamiao.model.StudentModel;
 import com.kaifamiao.model.SysuserModel;
 import com.kaifamiao.model.TeacherModel;
@@ -32,7 +32,7 @@ public class LoginController {
     @CrossOrigin("*")
     public void login(@RequestParam("role")String role,
                       @RequestParam("username")String username,
-                      @RequestParam("username")String password){
+                      @RequestParam("password")String password){
         if(list.get(0).equals(role)){
             SysuserModel sysuserModel = new SysuserModel();
             sysuserModel.setUsername(username);
@@ -55,7 +55,7 @@ public class LoginController {
     @CrossOrigin
     public void sign(@RequestParam("role")String role,
                      @RequestParam("username")String username,
-                     @RequestParam("username")String password){
+                     @RequestParam("password")String password){
         int state = 0;
         if(list.get(1).equals(role)){
             TeacherModel teacherModel = new TeacherModel();

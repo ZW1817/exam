@@ -2,6 +2,8 @@ package com.kaifamiao.service;
 
 import com.kaifamiao.model.BanjiModel;
 
+import java.util.List;
+
 public interface BanjiService {
 
     int  insert(BanjiModel record);
@@ -12,6 +14,6 @@ public interface BanjiService {
 
     BanjiModel selectByid(int id);
 
-//    List<Banji> selectAll(Banji record);
+    List<BanjiModel> selectAll(BanjiModel record);
 
 }

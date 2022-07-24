@@ -15,22 +15,14 @@ public class BanjiProvider {
         }}.toString();
     }
 
-    public  String deleteByPrimaryKey(int id){
+    public  String delete(int id){
         return new SQL(){{
             DELETE_FROM("banji");
             WHERE("id = #{id}");
         }}.toString();
     }
 
-    public String selectByPrimaryKey(int id){
-        return new SQL(){{
-            SELECT("*");
-            FROM("banji");
-            WHERE("id = #{id}");
-        }}.toString();
-    }
-
-    public String updateByPrimaryKey(BanjiModel record){
+    public String update(BanjiModel record){
         return new SQL(){{
             UPDATE("banji");
             if(record != null){
@@ -38,6 +30,22 @@ public class BanjiProvider {
                 if(record.getTno() != null) SET("tno","#{tno}");
                 if(record.getId() != null) WHERE("id = #{id}");
             }
+        }}.toString();
+    }
+
+    public String selectOne(int id){
+        return new SQL(){{
+            SELECT("*");
+            FROM("banji");
+            WHERE("id = #{id}");
+        }}.toString();
+    }
+
+    public String selectAll(BanjiModel record){
+        return new SQL(){{
+            SELECT("banji.*, teacher.name teachername");
+            FROM("banji");
+            LEFT_OUTER_JOIN("teacher on teacher.tno = banji.tno");
         }}.toString();
     }
 }

@@ -24,4 +24,9 @@ public class BanjiServiceImplTest {
 //        System.out.println(banjiService.insert(banji));
         System.out.println(banjiService.selectByid(2));
     }
+
+    @Test
+    public void find(){
+        System.out.println(banjiService.selectAll(null));
+    }
 }
