@@ -31,6 +31,7 @@ export default {
       status:1,
       date: '2016-05-03',
       name: 'Tom',
+      sclass:'1班',
       city: 'Los Angeles',
       zhuanye: 'No. 189, Grove St, Los Angeles',
       score: 'Home',
@@ -39,6 +40,7 @@ export default {
     status:2,
     date: '2016-05-02',
     name: 'Tom',
+    sclass:'2班',
     city: 'Los Angeles',
     zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Office',
@@ -47,6 +49,7 @@ export default {
     status:3,
     date: '2016-05-04',
     name: 'Tom',
+    sclass:'3班',
     city: 'Los Angeles',
     zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Home',
@@ -55,6 +58,7 @@ export default {
     status:3,
     date: '2016-05-01',
     name: 'Tom',
+    sclass:'4班',
     city: 'Los Angeles',
     zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Office',
@@ -88,7 +92,8 @@ export default {
           <el-table :data="tableData" style="width: 100%;margin-top: 30px;">
               <el-table-column prop="status" label="序号" width="180" />
               <el-table-column prop="date" label="学号" width="180" />
-              <el-table-column prop="name" label="班级" width="180" />
+              <el-table-column prop="name" label="学生姓名" width="180" />
+              <el-table-column prop="sclass" label="学生班级" width="180" />
               <el-table-column prop="zhuanye" label="学生专业" width="180"/>
           </el-table>
         </div>
