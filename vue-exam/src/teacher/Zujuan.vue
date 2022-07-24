@@ -10,7 +10,16 @@
                 tixing:"java",
                 tnum:5,
                 gander:100,
+            },{
+                status:2,
+                tixing:"java",
+                tnum:5,
+                gander:100,
             }],
+        }
+    },methods: {
+        sub(){
+            alert("提交成功");
         }
     },
    }
@@ -21,7 +30,7 @@
      <el-row>
         <el-col :span="24">
             <div class="grid-content ep-bg-purple-dark" >
-                <el-table :data="zujuan" style="width: 1000px;max-height:1000px">
+                <el-table :data="zujuan" style="width: 100%;margin-top: 30px;">
                     <el-table-column prop="status" label="序号" width="180" />
                     <el-table-column prop="tixing" label="题型" width="180" />
                     <el-table-column prop="tnum" label="出题个数" width="180" >
@@ -34,7 +43,9 @@
             </div>
         </el-col>
       </el-row>
+      <el-button type="success" @click="sub">提交题型</el-button>
     </el-main>
+
 </template>
 
 <style>

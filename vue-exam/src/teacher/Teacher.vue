@@ -32,7 +32,7 @@ export default {
       date: '2016-05-03',
       name: 'Tom',
       city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
+      zhuanye: 'No. 189, Grove St, Los Angeles',
       score: 'Home',
   },
   {
@@ -40,7 +40,7 @@ export default {
     date: '2016-05-02',
     name: 'Tom',
     city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
+    zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Office',
   },
   {
@@ -48,7 +48,7 @@ export default {
     date: '2016-05-04',
     name: 'Tom',
     city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
+    zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Home',
   },
   {
@@ -56,7 +56,7 @@ export default {
     date: '2016-05-01',
     name: 'Tom',
     city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
+    zhuanye: 'No. 189, Grove St, Los Angeles',
     score: 'Office',
   }]
     }
@@ -85,13 +85,11 @@ export default {
     <el-row>
       <el-col :span="24">
         <div class="grid-content ep-bg-purple" >
-          <el-table :data="tableData" style="width: 1000px;max-height:1000px">
+          <el-table :data="tableData" style="width: 100%;margin-top: 30px;">
               <el-table-column prop="status" label="序号" width="180" />
               <el-table-column prop="date" label="学号" width="180" />
               <el-table-column prop="name" label="班级" width="180" />
-              <el-table-column prop="address" label="专业" width="180"/>
-              <el-table-column prop="city" label="政治面貌" width="180" />
-              <el-table-column prop="score" label="成绩" width="180" />
+              <el-table-column prop="zhuanye" label="学生专业" width="180"/>
           </el-table>
         </div>
       </el-col>

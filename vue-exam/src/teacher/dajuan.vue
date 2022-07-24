@@ -1,21 +1,28 @@
 <template>
     <el-main >
+     <h2>答卷查询</h2>
      <el-row>
         <el-col :span="24">
             <div class="grid-content ep-bg-purple-dark" >
-                <el-table :data="dajuan" v-model="dajuan" style="width: 1000px;max-height:1000px">
-                    <el-table-column prop="status" label="序号" width="180" />
-                    <el-table-column prop="tixing" label="名称" width="180" />
+                <el-table :data="dajuan" style="width: 100%;margin-top: 30px;">
+                    <el-table-column prop="tindex" label="序号" width="180" />
+                    <el-table-column prop="title" label="试卷名" width="180" />
                     <el-table-column prop="banji" label="班级" width="180" />
-                    <el-table-column prop="sno" label="学号" width="180" />
-                    <el-table-column prop="Sstatus" label="状态" width="180" >
+                    <el-table-column prop="stno" label="学号" width="180" />
+                    <el-table-column prop="Sscore" label="学生成绩" width="180" />
+                    <el-table-column prop="Dstatus" label="答卷状态" width="180" >
+                         <template v-slot="scope" >
+                           {{ scope.row.Dstatus ==1 ? '已答卷' : '未答卷' }}
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="Ystatus" label="阅卷状态" width="180" >
                         <template v-slot="scope" >
-                           {{ scope.row.Sstatus  ? '已阅卷' : '未阅卷' }}
+                           {{ scope.row.Ystatus ==1 ? '已阅卷' : '未阅卷' }}
                         </template>
                     </el-table-column>
                     <el-table-column label="操作" width="180" >
                     <template v-slot="scope" >
-                        <el-button type="primary" v-if="scope.row.Sstatus==0" @click="yue">阅卷</el-button>
+                        <el-button type="primary" v-if="scope.row.Dstatus==1&&scope.row.Ystatus==0" @click="yue">阅卷</el-button>
                     </template>
                     </el-table-column>
                 </el-table>
@@ -35,29 +42,37 @@
     data() {
         return {
             dajuan:[{
-                status:1,
-                tixing:'java',
+                tindex:15,
+                title:'java',
                 banji:'1班',
-                sno:12345674,
-                Sstatus:true,
+                stno:12345674,
+                Sscore:0,
+                Dstatus:1,
+                Ystatus:1,
             },{
-                status:2,
-                tixing:'java2',
-                banji:'2班',
-                sno:12345676,
-                Sstatus:false,
+                tindex:14,
+                title:'java',
+                banji:'1班',
+                stno:12345674,
+                Sscore:0,
+                Dstatus:1,
+                Ystatus:0,
             },{
-                status:3,
-                tixing:'java2',
-                banji:'2班',
-                sno:12345675,
-                Sstatus:true,
+                tindex:13,
+                title:'java',
+                banji:'1班',
+                stno:12345674,
+                Sscore:0,
+                Dstatus:1,
+                Ystatus:1,
             },{
-                status:4,
-                tixing:'java2',
-                banji:'2班',
-                sno:12345674,
-                Sstatus:false,
+               tindex:12,
+                title:'java',
+                banji:'1班',
+                stno:12345674,
+                Sscore:0,
+                Dstatus:1,
+                Ystatus:0,
             }]
         }
     },methods: {

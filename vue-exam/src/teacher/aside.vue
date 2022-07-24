@@ -38,10 +38,10 @@
                     <router-link to="/teacherShow/dajuan"><el-menu-item index="2-2">答卷查询</el-menu-item></router-link>
                   </el-menu-item-group>
                 </el-sub-menu>
-                <el-menu-item index="3">
+                <router-link to="/teacherShow/Zhanghushezhi"><el-menu-item index="3">
                   <el-icon><document /></el-icon>
                   <span>账户设置</span>
-                </el-menu-item>
+                </el-menu-item></router-link>
               </el-menu>
             </el-col>
           </el-row>

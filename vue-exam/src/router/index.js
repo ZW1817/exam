@@ -21,6 +21,7 @@ import teacherShow from '../teacher/teacherShow.vue'
 import Teacher from '../teacher/Teacher.vue'
 import Zujuan from '../teacher/Zujuan.vue'
 import Dajuan from '../teacher/dajuan.vue'
+import Zhanghushezhi from '../teacher/zhanghushezhi.vue'
 
 import selectTable from '../teacher/selectAndUpdataTi/1-1.vue'
 import judgeTable from '../teacher/selectAndUpdataTi/1-2.vue'
@@ -146,6 +147,10 @@ const routes = [{
                 path: 'addSimple',
                 component: addSimple
             },
+            {
+                path: 'Zhanghushezhi',
+                component: Zhanghushezhi
+            }
         ]
     },
 
