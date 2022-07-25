@@ -30,7 +30,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
     name:"notAnswer",
     methods: {
@@ -108,6 +108,16 @@ export default {
           },
         ]
       }
+    },
+    mounted(){
+      let that = this;
+        axios.post("http://localhost:8080/exam/an/findAllAnswer",{
+          Headers:{
+            'Context-Type':'application/x-www-form-urlencoded'
+          }
+        }).then(function(response){
+          this.tableData = JSON.parse(response.data);
+        })
     }
 }
 </script>

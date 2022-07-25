@@ -29,7 +29,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
     name:"notAnswer",
       methods: {
@@ -63,7 +63,20 @@ export default {
         ],
          search: '',
       }
-    }
+    },
+    mounted(){
+      let that = this;
+        console.log(this);
+        axios.post("http://localhost:8080/exam/findAll",{
+          Headers:{
+            'Context-Type':'application/x-www-form-urlencoded'
+          }
+        }).then(function(response) {
+          let choice = response.data;
+          this.tableData = JSON.parse(choice)
+
+        })
+      }
 }
 </script>
 
