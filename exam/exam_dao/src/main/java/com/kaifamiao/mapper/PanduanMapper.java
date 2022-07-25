@@ -1,12 +1,10 @@
 package com.kaifamiao.mapper;
 
+import com.kaifamiao.model.JiandaModel;
 import com.kaifamiao.model.PanduanModel;
 import com.kaifamiao.model.PanduanModel;
 import com.kaifamiao.provider.PanduanProvider;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +28,6 @@ public interface PanduanMapper {
     @SelectProvider(type = PanduanProvider.class, method = "selectAll")
     List<PanduanModel> selectAll(PanduanModel record);
 
+    @Select("select * from panduan where id = #{id}}")
+    PanduanModel selectOne(int id);
 }

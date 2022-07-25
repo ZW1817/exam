@@ -1,12 +1,10 @@
 package com.kaifamiao.mapper;
 
+import com.kaifamiao.model.JiandaModel;
 import com.kaifamiao.model.TiankongModel;
 import com.kaifamiao.model.TiankongModel;
 import com.kaifamiao.provider.TiankongProvider;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +28,6 @@ public interface TiankongMapper {
     @SelectProvider(type = TiankongProvider.class, method = "selectAll")
     List<TiankongModel> selectAll(TiankongModel record);
 
+    @Select("select * from tiankong where id = #{id}}")
+    TiankongModel selectOne(int id);
 }

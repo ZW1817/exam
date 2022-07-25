@@ -2,10 +2,7 @@ package com.kaifamiao.mapper;
 
 import com.kaifamiao.model.JiandaModel;
 import com.kaifamiao.provider.JiandaProvider;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,4 +25,7 @@ public interface JiandaMapper {
 
     @SelectProvider(type = JiandaProvider.class, method = "selectAll")
     List<JiandaModel> selectAll(JiandaModel record);
+
+    @Select("select * from jianda where id = #{id}}")
+    JiandaModel selectOne(int id);
 }

@@ -1,11 +1,9 @@
 package com.kaifamiao.mapper;
 
+import com.kaifamiao.model.JiandaModel;
 import com.kaifamiao.model.XuanzeModel;
 import com.kaifamiao.provider.XuanzeProvider;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,5 +26,8 @@ public interface XuanzeMapper {
 
     @SelectProvider(type = XuanzeProvider.class, method = "selectAll")
     List<XuanzeModel> selectAll(XuanzeModel record);
+
+    @Select("select * from xuanze where id = #{id}}")
+    XuanzeModel selectOne(int id);
 
 }

@@ -2,7 +2,9 @@ package com.kaifamiao.service.Impl;
 
 import com.kaifamiao.config.SpringConfig;
 import com.kaifamiao.model.BanjiModel;
+import com.kaifamiao.model.XuanzeModel;
 import com.kaifamiao.service.BanjiService;
+import com.kaifamiao.service.XuanzeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ public class BanjiServiceImplTest {
 
     @Autowired
     private BanjiService banjiService;
+    @Autowired
+    private XuanzeService xuanzeService;
 
     @Test
     public void insert(){
@@ -28,5 +32,12 @@ public class BanjiServiceImplTest {
     @Test
     public void find(){
         System.out.println(banjiService.selectAll(null));
+    }
+
+    @Test
+    public void xuanze(){
+        XuanzeModel xuanzeModel = new XuanzeModel();
+//        xuanzeModel.setTitle("123144");
+        System.out.println(xuanzeService.insert(xuanzeModel));
     }
 }
