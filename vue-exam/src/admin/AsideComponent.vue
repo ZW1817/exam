@@ -43,10 +43,10 @@ const visible = ref(false)
             <span>基础管理</span>
           </template>
           <el-menu-item-group #title>
-            <el-menu-item index="1-1"><router-link to="/admin">学生管理</router-link></el-menu-item>
-            <el-menu-item index="1-2"><router-link to="/admin/teachers">教师管理</router-link></el-menu-item>
-            <el-menu-item index="1-3"><router-link to="/admin/classes">班级管理</router-link></el-menu-item>
-            <el-menu-item index="1-4"><router-link to="/admin/course">科目管理</router-link></el-menu-item>
+            <router-link to="/admin"><el-menu-item index="1-1">学生管理</el-menu-item></router-link>
+            <router-link to="/admin/teachers"><el-menu-item index="1-2">教师管理</el-menu-item></router-link>
+            <router-link to="/admin/classes"><el-menu-item index="1-3">班级管理</el-menu-item></router-link>
+            <router-link to="/admin/course"><el-menu-item index="1-4">科目管理</el-menu-item></router-link>
           </el-menu-item-group>
         </el-sub-menu>
         <el-sub-menu index="2">
@@ -68,7 +68,7 @@ const visible = ref(false)
                 </template>
               </el-dialog>
             </el-menu-item>
-            <el-menu-item index="2-2"><router-link to="/admin/edit">编辑账户</router-link></el-menu-item>
+            <router-link to="/admin/edit"><el-menu-item index="2-2">编辑账户</el-menu-item></router-link>
           </el-menu-item-group>
         </el-sub-menu>
         <el-sub-menu index="3">
@@ -77,7 +77,7 @@ const visible = ref(false)
             <span>公告管理</span>
           </template>
           <el-menu-item-group #title>
-            <el-menu-item index="3-1"><router-link to="/admin/notice">发布公告</router-link></el-menu-item>
+            <router-link to="/admin/notice"><el-menu-item index="3-1">发布公告</el-menu-item></router-link>
           </el-menu-item-group>
         </el-sub-menu>
       </el-menu>

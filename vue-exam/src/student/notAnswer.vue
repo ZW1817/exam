@@ -16,7 +16,7 @@
               <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
             </template>
             <template #default="scope">
-              <router-link to="/stuShow/doTi"><el-button
+              <router-link to="/student/doTi"><el-button
                 size="mini"
                 type="danger"
                 @click="handleDelete(scope.$index, scope.row)"

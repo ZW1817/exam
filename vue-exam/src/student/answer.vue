@@ -43,6 +43,9 @@ export default {
       seeRow(index, rows) {
         rows.splice(index, 1)
       },
+      handleDelete(index, row){
+        console.log(index, row)
+      }
     },
     data() {
       return {
