@@ -19,4 +19,6 @@ public interface XuanzeService {
     List<XuanzeModel> findAll(XuanzeModel record);
 
     XuanzeModel findOne(int  id);
+
+    List<XuanzeModel> selectRandNum(Integer num);
 }

@@ -75,4 +75,15 @@ public class XuanzeProvider {
             }
         }}.toString();
     }
+    public String selectRandNum(Integer num) {
+        return new SQL() {{
+            SELECT("*");
+            FROM(tableName);
+            if (num !=null){
+                ORDER_BY("RAND() LIMIT #{num}");
+            }else{
+                ORDER_BY("RAND() LIMIT 10");
+            }
+        }}.toString();
+    }
 }

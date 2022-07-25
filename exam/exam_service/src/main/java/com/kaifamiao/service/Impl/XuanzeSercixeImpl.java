@@ -39,4 +39,9 @@ public class XuanzeSercixeImpl implements XuanzeService {
     public XuanzeModel findOne(int id){
         return xuanzeMapper.selectOne(id);
     }
+
+    @Override
+    public List<XuanzeModel> selectRandNum(Integer num) {
+        return xuanzeMapper.selectRandNum(num);
+    }
 }

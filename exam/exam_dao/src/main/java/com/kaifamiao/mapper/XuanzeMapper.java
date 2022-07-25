@@ -30,4 +30,6 @@ public interface XuanzeMapper {
     @Select("select * from xuanze where id = #{id}}")
     XuanzeModel selectOne(int id);
 
+    @SelectProvider(type = XuanzeProvider.class, method = "selectRandNum")
+    List<XuanzeModel> selectRandNum(Integer num);
 }

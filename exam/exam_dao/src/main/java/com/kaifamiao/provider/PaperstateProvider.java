@@ -48,4 +48,11 @@ public class PaperstateProvider {
         }}.toString();
     }
 
+    public String selectStdudent(){
+        return new SQL(){{
+            SELECT("s.title AS title , b.name AS name, p.stno AS stno , p.dstate AS dstate ,p.ystate AS ystate ,p.score AS score");
+            FROM("shijuan s, banji b , paperstate p");
+            WHERE("s.tno=b.tno AND p.shijuanid=s.id");
+        }}.toString();
+    }
 }

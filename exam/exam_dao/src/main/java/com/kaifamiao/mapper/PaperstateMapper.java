@@ -5,6 +5,7 @@ import com.kaifamiao.provider.PaperstateProvider;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author HP1
@@ -28,5 +29,9 @@ public interface PaperstateMapper {
 
     @SelectProvider(type = PaperstateProvider.class, method = "selectAll")
    List<PaperstateModel> selectAll(PaperstateModel record);
+
+    @SelectProvider(type = PaperstateProvider.class, method = "selectStdudent")
+    List<Map<String, Object>> selectStdudent();
+
 
 }
