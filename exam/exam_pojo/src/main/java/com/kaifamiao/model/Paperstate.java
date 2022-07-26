@@ -1,0 +1,38 @@
+package com.kaifamiao.model;
+
+import java.io.Serializable;
+import lombok.Data;
+
+/**
+ * 
+ * @TableName paperstate
+ */
+@Data
+public class Paperstate implements Serializable {
+    /**
+     * 
+     */
+    private Integer id;
+
+    /**
+     * 
+     */
+    private Integer shijuanid;
+
+    /**
+     * 
+     */
+    private Boolean dstate;
+
+    /**
+     * 
+     */
+    private Boolean ystate;
+
+    /**
+     * 
+     */
+    private String stno;
+
+    private static final long serialVersionUID = 1L;
+}
