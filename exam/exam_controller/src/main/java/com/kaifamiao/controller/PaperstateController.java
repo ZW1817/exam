@@ -3,6 +3,7 @@ package com.kaifamiao.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaifamiao.mapper.ShijuanitemMapper;
+import com.kaifamiao.mapper.StudentMapper;
 import com.kaifamiao.model.*;
 import com.kaifamiao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ import java.util.Map;
 public class PaperstateController {
     @Autowired
     private PaperstateService paperstateService;
+
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private BanjiService banjiService;
 
     @Autowired
     private PanduanService panduanService;
@@ -52,7 +58,9 @@ public class PaperstateController {
         shijuanModel.setTno(shijuanLists.getTno());
         shijuanModel.setZongfen(shijuanLists.getTotal());
         shijuanModel.setStarttime(new Date());
+
         Integer shijuanId = paperstateService.createShijuan(shijuanModel);
+
         for (int i = 0; i < shijuanLists.getZujuans().size(); i++) {
             if (shijuanLists.getZujuans().get(i).getQtype() == 0) {
                 if (shijuanLists.getZujuans().get(i).getTnum() > 0) {
@@ -62,7 +70,8 @@ public class PaperstateController {
                         shijuanitemModel.setQtype(shijuanLists.getZujuans().get(i).getQtype());
                         shijuanitemModel.setFenshu(shijuanLists.getZujuans().get(i).getScore());
                         shijuanitemModel.setTihao(list.get(j).getId());
-                        shijuanitemService.insert(shijuanitemModel);
+                        int count=shijuanitemService.insert(shijuanitemModel);
+                        System.out.println(count);
                     }
                 }
             }
@@ -74,7 +83,8 @@ public class PaperstateController {
                         shijuanitemModel.setQtype(shijuanLists.getZujuans().get(i).getQtype());
                         shijuanitemModel.setFenshu(shijuanLists.getZujuans().get(i).getScore());
                         shijuanitemModel.setTihao(list.get(j).getId());
-                        shijuanitemService.insert(shijuanitemModel);
+                        int count=shijuanitemService.insert(shijuanitemModel);
+                        System.out.println(count);
                     }
                 }
             }
@@ -86,7 +96,8 @@ public class PaperstateController {
                         shijuanitemModel.setQtype(shijuanLists.getZujuans().get(i).getQtype());
                         shijuanitemModel.setFenshu(shijuanLists.getZujuans().get(i).getScore());
                         shijuanitemModel.setTihao(list.get(j).getId());
-                        shijuanitemService.insert(shijuanitemModel);
+                        int count=shijuanitemService.insert(shijuanitemModel);
+                        System.out.println(count);
                     }
                 }
             }
@@ -98,16 +109,34 @@ public class PaperstateController {
                         shijuanitemModel.setQtype(shijuanLists.getZujuans().get(i).getQtype());
                         shijuanitemModel.setFenshu(shijuanLists.getZujuans().get(i).getScore());
                         shijuanitemModel.setTihao(list.get(j).getId());
-                        shijuanitemService.insert(shijuanitemModel);
+                        int count=shijuanitemService.insert(shijuanitemModel);
+                        System.out.println(count);
                     }
                 }
             }
         }
-        Paperstate paperstate = new Paperstate();
-        paperstate.setShijuanid(shijuanId);
-        paperstate.setDstate(false);
-        paperstate.setYstate(false);
-        paperstate.setStno(shijuanLists.getTno());
+        PaperstateModel paperstate = new PaperstateModel();
+        BanjiModel banjiModel = new BanjiModel();
+        banjiModel.setTno(shijuanLists.getTno());
+        List<BanjiModel> banjiModels = banjiService.selectAll(banjiModel);
+        for (int i = 0 ;i < banjiModels.size(); i++){
+
+
+            StudentModel studentModel = new StudentModel();
+            studentModel.setClassid(banjiModels.get(i).getId());
+            List<StudentModel> studentModels = studentService.findAll(studentModel);
+            for(int j = 0; j < studentModels.size(); j ++ ){
+                paperstate.setShijuanid(shijuanId);
+                paperstate.setDstate(0);
+                paperstate.setYstate(0);
+                paperstate.setStno(shijuanLists.getTno());
+                paperstate.setStno(studentModels.get(j).getStno());
+                int count = paperstateService.insert(paperstate);
+                System.out.println(count);
+            }
+
+        }
+
         return 1;
     }
 

@@ -11,7 +11,7 @@ export default {
                 tnum: 10,
                 score: 2,
             }, {
-                "qtype": 1,
+                qtype: 1,
                 title: "java",
                 tnum: 10,
                 score: 2,
@@ -63,7 +63,11 @@ export default {
                     headers: { 'Content-Type': 'application/json' }
                 }
             )
-
+            .then((req)=>{
+                if(req.data=1){
+                    alert("添加成功")
+                }
+            })
         }
     },
 }

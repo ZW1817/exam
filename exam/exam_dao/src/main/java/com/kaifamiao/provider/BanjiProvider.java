@@ -46,6 +46,9 @@ public class BanjiProvider {
             SELECT("banji.*, teacher.name teachername");
             FROM("banji");
             LEFT_OUTER_JOIN("teacher on teacher.tno = banji.tno");
+            if(record != null){
+                if(record.getTno() != null) WHERE("banji.tno = #{tno}");
+            }
         }}.toString();
     }
 }

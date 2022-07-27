@@ -5,7 +5,7 @@ import org.apache.ibatis.jdbc.SQL;
 
 public class ShijuanitemProvider {
 
-    private static final String tableName = "dajuanitem";
+    private static final String tableName = "Shijuanitem";
 
     public String delete(ShijuanitemModel record){
         return new SQL(){{
@@ -29,7 +29,6 @@ public class ShijuanitemProvider {
                 if(record.getId() != null) VALUES("id","#{id}");
                 if(record.getQtype() != null) VALUES("qtype","#{qtype}");
                 if(record.getTihao() != null) VALUES("tihao","#{tihao}");
-                if(record.getQtype() != null) VALUES("qtype","#{qtype}");
             }
         }}.toString();
     }
