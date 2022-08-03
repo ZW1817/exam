@@ -4,7 +4,8 @@
 一个简单的在线考试系统（前后端分离）
 
 #### 软件架构
-软件架构说明
+前端：Vue + Element-UI
+后端：Spring +Spring MVC + Mybatis + Tomcat + MySQL8
 
 
 #### 安装教程
