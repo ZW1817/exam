@@ -5,20 +5,17 @@
 
 #### 软件架构
 前端：Vue + Element-UI
+
 后端：Spring +Spring MVC + Mybatis + Tomcat + MySQL8
 
 
 #### 安装教程
 
 1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 使用说明
 
 1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 参与贡献
 
