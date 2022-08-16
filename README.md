@@ -8,6 +8,9 @@
 
 后端：Spring +Spring MVC + Mybatis + Tomcat + MySQL8
 
+#### 相关技术
+poi实现批量导入
+security实现鉴权
 
 #### 安装教程
 
