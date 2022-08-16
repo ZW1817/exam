@@ -8,7 +8,7 @@
 
 后端：Spring +Spring MVC + Mybatis + Tomcat + MySQL8
 
-#### 相关技术
+#### 相关技术（可扩展项）
 poi实现批量导入
 security实现鉴权
 
